@@ -1,0 +1,520 @@
+﻿<html>
+    <head>
+
+        <meta charset="utf-8" />
+        <title>GT Chat</title>
+        <style>
+            #zone_chat strong {
+                color: white;
+                background-color: black;
+                padding: 2px;
+            }
+
+	.bar
+	{
+
+
+}
+
+.CSSTableGenerator {
+	margin:0px;padding:0px;
+	width:100%;
+	box-shadow: 10px 10px 5px #888888;
+	border:1px solid #000000;
+	
+	-moz-border-radius-bottomleft:0px;
+	-webkit-border-bottom-left-radius:0px;
+	border-bottom-left-radius:0px;
+	
+	-moz-border-radius-bottomright:0px;
+	-webkit-border-bottom-right-radius:0px;
+	border-bottom-right-radius:0px;
+	
+	-moz-border-radius-topright:0px;
+	-webkit-border-top-right-radius:0px;
+	border-top-right-radius:0px;
+	
+	-moz-border-radius-topleft:0px;
+	-webkit-border-top-left-radius:0px;
+	border-top-left-radius:0px;
+}.CSSTableGenerator table{
+    border-collapse: collapse;
+        border-spacing: 0;
+	width:100%;
+	height:100%;
+	margin:0px;padding:0px;
+}.CSSTableGenerator tr:last-child td:last-child {
+	-moz-border-radius-bottomright:0px;
+	-webkit-border-bottom-right-radius:0px;
+	border-bottom-right-radius:0px;
+}
+.CSSTableGenerator table tr:first-child td:first-child {
+	-moz-border-radius-topleft:0px;
+	-webkit-border-top-left-radius:0px;
+	border-top-left-radius:0px;
+}
+.CSSTableGenerator table tr:first-child td:last-child {
+	-moz-border-radius-topright:0px;
+	-webkit-border-top-right-radius:0px;
+	border-top-right-radius:0px;
+}.CSSTableGenerator tr:last-child td:first-child{
+	-moz-border-radius-bottomleft:0px;
+	-webkit-border-bottom-left-radius:0px;
+	border-bottom-left-radius:0px;
+}.CSSTableGenerator tr:hover td{
+	
+}
+.CSSTableGenerator tr:nth-child(odd){ background-color:#ffaa56; }
+.CSSTableGenerator tr:nth-child(even)    { background-color:#ffffff; }.CSSTableGenerator td{
+	vertical-align:middle;
+	
+	
+	border:1px solid #000000;
+	border-width:0px 1px 1px 0px;
+	text-align:left;
+	padding:7px;
+	font-size:10px;
+	font-family:Arial;
+	font-weight:normal;
+	color:#000000;
+}.CSSTableGenerator tr:last-child td{
+	border-width:0px 1px 0px 0px;
+}.CSSTableGenerator tr td:last-child{
+	border-width:0px 0px 1px 0px;
+}.CSSTableGenerator tr:last-child td:last-child{
+	border-width:0px 0px 0px 0px;
+}
+.CSSTableGenerator tr:first-child td{
+		background:-o-linear-gradient(bottom, #ff7f00 5%, #bf5f00 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ff7f00), color-stop(1, #bf5f00) );
+	background:-moz-linear-gradient( center top, #ff7f00 5%, #bf5f00 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff7f00", endColorstr="#bf5f00");	background: -o-linear-gradient(top,#ff7f00,bf5f00);
+
+	background-color:#ff7f00;
+	border:0px solid #000000;
+	text-align:center;
+	border-width:0px 0px 1px 1px;
+	font-size:14px;
+	font-family:Arial;
+	font-weight:bold;
+	color:#ffffff;
+}
+.CSSTableGenerator tr:first-child:hover td{
+	background:-o-linear-gradient(bottom, #ff7f00 5%, #bf5f00 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ff7f00), color-stop(1, #bf5f00) );
+	background:-moz-linear-gradient( center top, #ff7f00 5%, #bf5f00 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff7f00", endColorstr="#bf5f00");	background: -o-linear-gradient(top,#ff7f00,bf5f00);
+
+	background-color:#ff7f00;
+}
+.CSSTableGenerator tr:first-child td:first-child{
+	border-width:0px 0px 1px 0px;
+}
+.CSSTableGenerator tr:first-child td:last-child{
+	border-width:0px 0px 1px 1px;
+}
+</style>
+<script language="JavaScript">
+afk="off";
+afk_message="Je suis actuellement absent, il y a 22 smileys d'ajoutés charge à vous de les découvrir ! :p guibs";
+
+function replaceEmoticons(text) {
+  var emoticons = {
+    ':-)' : '/images/smiley1.gif',
+    ':)'  : '/images/smiley1.gif',
+    ';)'  : '/images/smiley2.gif',
+    ':d'  : '/images/smiley3.gif',
+    '=)'  : '/images/smiley4.gif',
+    ':D'  : '/images/smiley5.gif',
+    ':8'  : '/images/smiley6.gif',
+    ':o'  : '/images/smiley7.gif',
+    ':('  : '/images/smiley8.gif',
+    ':s'  : '/images/smiley9.gif',
+    '+o('  : '/images/smiley10.gif',
+    ':p'  : '/images/smiley11.gif',
+    '^^'  : '/images/smiley12.gif',
+    ':|'  : '/images/smiley13.gif',
+    ':/'  : '/images/smiley14.gif',
+    ';|'  : '/images/smiley15.gif',
+    ':*'  : '/images/smiley16.gif',
+    '8|'  : '/images/smiley17.gif',
+    ':x'  : '/images/smiley18.gif',
+    ':O'  : '/images/smiley19.gif',
+    '|o'  : '/images/smiley20.gif',
+    ':|'  : '/images/smiley21.gif',
+    '=D'  : '/images/smiley22.gif',
+  }, url = "", patterns = [],
+     metachars = /[[\]{}()*+?.\\|^$\-,&#\s]/g;
+
+  // build a regex pattern for each defined property
+  for (var i in emoticons) {
+    if (emoticons.hasOwnProperty(i)){ // escape metacharacters
+      patterns.push('('+i.replace(metachars, "\\$&")+')');
+    }
+  }
+
+  // build the regular expression and replace
+  return text.replace(new RegExp(patterns.join('|'),'g'), function (match) {
+    return typeof emoticons[match] != 'undefined' ?
+           '<img src="'+emoticons[match]+'"/>' :
+           match;
+  });
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) != -1) return c.substring(name.length,c.length);
+    }
+    return "";
+}
+
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+function eraseCookie(c_name) {
+  //  setCookie(c_name,"",-1);
+}
+
+
+
+
+var rooms=["Lobby","room1","room2","room3"];
+var pwd=new Array();
+pwd["Lobby"]="pass";
+pwd["guibs"]="test";
+password="qwerty63";
+
+var users=["gbs","guibs","louak"];
+
+
+
+function login()
+{
+		setCookie("pseudo",pseudo,5);
+		user_logged=true;
+
+
+
+        socket.emit('nouveau_client', pseudo);
+        document.title = pseudo + ' - ' + document.title;
+}
+var rooms=["Lobby","room1","room2","room3"];
+var users=["gbs","guibs","louak"];
+
+
+    <!--
+    function donner_focus(chp)
+    {
+        document.getElementById(chp).focus();
+    }
+
+
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+function eraseCookie(c_name) {
+  //  setCookie(c_name,"",-1);
+}
+
+    // -->
+</script>
+
+        
+    </head>
+ 
+    body  onload="donner_focus('message')" >
+        <h1>GT_ Chat room</h1>
+
+        <form action="/" method="post" id="formulaire_chat">
+            <input type="text" name="message" id="message" autofocus placeholder="Votre message..." size="50"  style="position:absolute;top:0px;left:490px;z-index:2000; border:1 px solid gray;width:400px;height:60px;background-color:#D8CA9A;" />
+            
+        </form>
+
+           
+<img src="images/background.jpg" style="position:absolute;top:0px;left:20px;z-index:0;">
+
+
+<div style="background-image: url(../images/bar.gif); position:absolute;z-index:2000;top:60px;left:130px;height: 53px; width: 990px; border: 0px solid black;"></div>
+
+<div style= "border:0px solid red;position:absolute;left:1120px;top:86px;z-index:2020;"><b> Utilisateurs</b></div>
+
+	<div style="border:1px solid black;width:160px;height:180px;position:absolute;left:1130px;top:116px;z-index:2000;overflow:scroll-y;" id="users"></div>
+
+
+
+	<div id="conversation" style="border:1px solid gray;position:absolute;z-index:1000;top:140px;left:260px;"></div>
+
+
+        <section id="zone_chat" style="border:0px solid blue;position:absolute;z-index:1000;top:170px;left:270px;">
+            
+        </section>
+<audio id="welcome" src="sound\welcome.mp3" preload="auto"></audio>
+<audio id="beep_message" src="sound\entry.mp3" preload="auto"></audio>
+<audio id="entry" src="sound\entry.mp3" preload="auto"></audio>
+<audio id="exit" src="sound\exit.mp3" preload="auto"></audio>
+
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+var usercolors = { };
+
+            // Connexion à socket.io
+            var socket = io.connect('http://gtchat.myftp.org:8080');
+
+            // On demande le pseudo, on l'envoie au serveur et on l'affiche dans le titre
+pseudo=getCookie("pseudo");
+user_logged=false;
+eraseCookie("pseudo");
+document.cookie = "pseudo=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+if (pseudo=="" ||!pseudo)
+	{
+
+
+            var pseudo = prompt('Quel est votre pseudo ?');
+
+
+		a=users.indexOf(pseudo);
+if (a<0)
+		{
+            alert("utilisateur inconnu !");
+		}
+	if (a>=0)
+			{
+			pwd=prompt('mot de passe ?');
+
+
+			if (pwd==password)
+			{
+			login();
+			}
+			else
+
+			{
+			alert("mauvais mot de passe!");
+			}
+
+
+			}
+}
+		else
+		{
+            login();
+		}
+
+
+function login()
+{
+            socket.emit('nouveau_client', pseudo);
+            document.title = pseudo + ' - ' + document.title;
+		setCookie("pseudo",pseudo,5);
+
+
+            // Quand on reçoit un message, on l'insère dans la page
+            socket.on('message', function(data) {
+//alert("inserting...");
+                insereMessage(data.color,data.pseudo, data.message)
+//alert("done!");
+
+usercolors[data.pseudo]=data.color;
+            })
+// listener, whenever the server emits 'updatechat', this updates the chat body
+	socket.on('updatechat', function (username, data) {
+
+play_single_sound("beep_message");
+date = new Date;
+h = date.getHours();
+        if(h<10)
+        {
+                h = "0"+h;
+        }
+        m = date.getMinutes();
+        if(m<10)
+        {
+                m = "0"+m;
+        }
+        s = date.getSeconds();
+        if(s<10)
+        {
+                s = "0"+s;
+        }
+var time = h+":"+m+":"+s;
+	$('#conversation').append('<b><strong>' + time + '</strong>      '+username + ':</b> ' + data + '<br>');
+	});
+	socket.on('writetochat', function (username, data) {
+//alert("data is"+data);
+date = new Date;
+h = date.getHours();
+        if(h<10)
+        {
+                h = "0"+h;
+        }
+        m = date.getMinutes();
+        if(m<10)
+        {
+                m = "0"+m;
+        }
+        s = date.getSeconds();
+        if(s<10)
+        {
+                s = "0"+s;
+        }
+var time = h+":"+m+":"+s;
+	$('#conversation').append('<b><strong>' + time + '</strong>      '+username + ':</b> ' + data + '<br>');
+	});
+
+
+	// listener, whenever the server emits 'updateusers', this updates the username list
+	socket.on('updateusers', function(data) {
+		$('#users').empty();
+///alert(data);
+		$.each(data, function(key, value) {
+			$('#users').append('<div>' + key + '</div>');
+		});
+	});
+            // Quand un nouveau client se connecte, on affiche l'information
+            socket.on('get_color', function(pseudo,color,clients ) {
+
+var userlist="";
+
+//alert(" pseudo is:"+pseudo+" & list is:"+clients);
+
+
+
+                usercolors[pseudo]=color;
+
+		socket.color= color;
+
+user_color=usercolors[pseudo];
+//alert(" usercolors[pseudo] is: "+usercolors[pseudo]+" & pseudo is:"+pseudo);
+            })
+
+
+            // Quand un nouveau client se connecte, on affiche l'information
+            socket.on('nouveau_client', function(pseudo,color ) {
+//play_single_sound("entry");
+date = new Date;
+h = date.getHours();
+        if(h<10)
+        {
+                h = "0"+h;
+        }
+        m = date.getMinutes();
+        if(m<10)
+        {
+                m = "0"+m;
+        }
+        s = date.getSeconds();
+        if(s<10)
+        {
+                s = "0"+s;
+        }
+var time = h+":"+m+":"+s;
+
+                $('#zone_chat').prepend('<p><strong>' + time + '</strong><em><span style="color:'+color+'"><b>' + pseudo + '</b></span><span style="color:green"> a rejoint le Chat !</span></em></p>');
+            })
+
+
+            // Quand un nouveau client se déconnecte, on affiche l'information
+            socket.on('disconnection', function(pseudo,color ) {
+//alert("disco for user:"+pseudo);
+play_single_sound("exit");
+h = date.getHours();
+        if(h<10)
+        {
+                h = "0"+h;
+        }
+        m = date.getMinutes();
+        if(m<10)
+        {
+                m = "0"+m;
+        }
+        s = date.getSeconds();
+        if(s<10)
+        {
+                s = "0"+s;
+        }
+var time = h+":"+m+":"+s;
+
+
+
+                $('#zone_chat').prepend('<p><strong>' + time + '</strong><em><span style="color:'+color+'"><b>' + pseudo + '</b></span><span style="color:red"> s\'est déconnecté !</span></em></p>');
+            })
+
+
+
+            // Lorsqu'on envoie le formulaire, on transmet le message et on l'affiche sur la page
+
+if (usercolors[pseudo]);
+else
+{
+usercolors[pseudo]=socket.color;
+}
+            $('#formulaire_chat').submit(function () {
+                var message = $('#message').val();
+
+play_single_sound("beep_message");
+
+
+                socket.emit('message', message,pseudo,usercolors[pseudo]); // Transmet le message aux autres
+
+                insereMessage(usercolors[pseudo],pseudo, message); // Affiche le message aussi sur notre page
+                $('#message').val('').focus(); // Vide la zone de Chat et remet le focus dessus
+                return false; // Permet de bloquer l'envoie "classique" du formulaire
+            });
+
+            // Ajoute un message dans la page
+            function insereMessage(color,pseudo, message) {
+
+//alert("col is: "+color+" && pseud is:"+pseudo);
+
+message=replaceEmoticons(message);
+
+
+date = new Date;
+h = date.getHours();
+        if(h<10)
+        {
+                h = "0"+h;
+        }
+        m = date.getMinutes();
+        if(m<10)
+        {
+                m = "0"+m;
+        }
+        s = date.getSeconds();
+        if(s<10)
+        {
+                s = "0"+s;
+        }
+var time = h+":"+m+":"+s;
+                $('#zone_chat').prepend('<p><strong>' + time + '</strong><span style="color:'+color+'">&nbsp;&nbsp;&nbsp;<b>'+pseudo+'</span><b><em>&nbsp;&nbsp;&nbsp;' + message + '</em></p>');
+//                $('#zone_chat').prepend('<p><strong>' + time + '</strong><span style="color:"'+color+'">&nbsp;&nbsp;&nbsp;<b>'+pseudo+'</span><b><em>&nbsp;&nbsp;&nbsp;' + message + '</em></p>');
+
+play_single_sound("beep_message");
+            }
+
+
+	function play_single_sound(el) {
+		document.getElementById(el).play();
+	}
+//alert("play....");
+play_single_sound("welcome");
+if (afk=="on")
+{
+alert (afk_message);
+}
+
+}
+//alert("done!");
+        </script>
+</html>
